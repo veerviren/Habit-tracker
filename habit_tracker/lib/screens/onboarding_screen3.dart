@@ -15,7 +15,7 @@ class _onboardingScreen3State extends State<onboardingScreen3> {
       child: Scaffold(
         body: Center(
           child: InkWell(
-            onTap: () => Navigator.pushNamed(context, '/onboarding'),
+            onTap: () => Navigator.pushNamed(context, '/habitselector'),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

@@ -1,0 +1,4 @@
+{
+  "cmake.sourceDirectory": "${workspaceFolder}/habit_tracker/linux",
+  "cSpell.words": ["habitselector"]
+}
