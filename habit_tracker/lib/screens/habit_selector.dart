@@ -3,8 +3,6 @@ import 'package:habit_tracker/contants.dart';
 import 'package:habit_tracker/widgets/empty_brick.dart';
 import 'package:habit_tracker/widgets/content_brick.dart';
 
-List<Widget> HabitList = [];
-
 class HabitSelectorPage extends StatefulWidget {
   const HabitSelectorPage({super.key});
 
@@ -41,49 +39,18 @@ class _HabitSelectorPageState extends State<HabitSelectorPage> {
                         const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
                     child: Row(
                       children: [
-                        ContentBrick(habit_name: "dance"),
-                        EmptyBrick(),
                         ContentBrick(
-                          habit_name: "music",
-                        ),
-                        ContentBrick(
-                          habit_name: "singing",
-                        ),
-                        EmptyBrick(),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
-                    child: Row(
-                      children: [
-                        ContentBrick(
-                          habit_name: "cycling",
+                          habit_name: "Coding",
+                          habit_icon: "assets/images/coding.png",
                         ),
                         EmptyBrick(),
                         ContentBrick(
-                          habit_name: "running",
+                          habit_name: "Yoga",
+                          habit_icon: "assets/images/yoga.png",
                         ),
-                        EmptyBrick(),
                         ContentBrick(
-                          habit_name: "sleeping",
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
-                    child: Row(
-                      children: [
-                        EmptyBrick(),
-                        ContentBrick(
-                          habit_name: "study",
-                        ),
-                        EmptyBrick(),
-                        ContentBrick(
-                          habit_name: "eating",
+                          habit_name: "Write",
+                          habit_icon: "assets/images/write.png",
                         ),
                         EmptyBrick(),
                       ],
@@ -94,16 +61,60 @@ class _HabitSelectorPageState extends State<HabitSelectorPage> {
                         const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
                     child: Row(
                       children: [
-                        EmptyBrick(),
                         ContentBrick(
-                          habit_name: "yoga",
-                        ),
-                        ContentBrick(
-                          habit_name: "Gym",
+                          habit_name: "Running",
+                          habit_icon: "assets/images/running.png",
                         ),
                         EmptyBrick(),
                         ContentBrick(
-                          habit_name: "shotting",
+                          habit_name: "Flossing",
+                          habit_icon: "assets/images/floss_teeth.png",
+                        ),
+                        EmptyBrick(),
+                        ContentBrick(
+                          habit_name: "Guitar",
+                          habit_icon: "assets/images/guitar.png",
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
+                    child: Row(
+                      children: [
+                        EmptyBrick(),
+                        ContentBrick(
+                          habit_name: "Gardening",
+                          habit_icon: "assets/images/gardening.png",
+                        ),
+                        EmptyBrick(),
+                        ContentBrick(
+                          habit_name: "Drawing",
+                          habit_icon: "assets/images/drawing.png",
+                        ),
+                        EmptyBrick(),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
+                    child: Row(
+                      children: [
+                        EmptyBrick(),
+                        ContentBrick(
+                          habit_name: "Journal",
+                          habit_icon: "assets/images/journal.png",
+                        ),
+                        ContentBrick(
+                          habit_name: "Bed",
+                          habit_icon: "assets/images/bed.png",
+                        ),
+                        EmptyBrick(),
+                        ContentBrick(
+                          habit_name: "Cooking",
+                          habit_icon: "assets/images/cooking.png",
                         ),
                       ],
                     ),
