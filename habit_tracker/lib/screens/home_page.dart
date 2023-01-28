@@ -1,9 +1,17 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/screens/habit_selector.dart';
 import 'package:habit_tracker/contants.dart';
 import 'package:habit_tracker/widgets/profile_pic_name.dart';
 import 'package:habit_tracker/widgets/calendar.dart';
 import 'package:horizontal_calendar/horizontal_calendar.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
+
+import '../widgets/progress_boad.dart';
+
+late String todayDate = DateTime.now().toString();
+late String selectedDate = todayDate;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -29,36 +37,19 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: 20,
           ),
+          ProgressBoad(),
           Container(
-            // color: Colors.red,
-            height: 200,
-            width: double.infinity,
-            child: Stack(
-              children: [
-                Positioned(
-                  top: 30,
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    height: 150,
-                    width: 390,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 0,
-                  left: 10,
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    child: Image.asset(
-                      "assets/images/high_score.png",
-                    ),
-                  ),
-                ),
-              ],
+            margin: EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(right: 150),
+            child: Text(
+              "Todays Habits",
+              style: TextStyle(fontSize: 30),
+            ),
+          ),
+          Visibility(
+            visible: (selectedDate == todayDate ? true : false),
+            child: Container(
+              child: Text(HabitList.length.toString()),
             ),
           ),
         ]),
@@ -74,9 +65,11 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       selectedColor: Colors.blue,
       showMonth: true,
-      onDateSelected: (date) => print(
-        date.toString(),
-      ),
+      onDateSelected: (date) => setState(() {
+        selectedDate = date.toString();
+        print(selectedDate);
+        print(todayDate);
+      }),
     );
   }
 }

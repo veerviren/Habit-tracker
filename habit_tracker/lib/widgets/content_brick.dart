@@ -4,16 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:habit_tracker/screens/habit_selector.dart';
 
 class ContentBrick extends StatefulWidget {
-  const ContentBrick({super.key});
+  final String habit_name;
+  const ContentBrick({required this.habit_name});
 
   @override
   State<ContentBrick> createState() => _ContentBrickState();
 }
 
 class _ContentBrickState extends State<ContentBrick> {
-  late double value = 0;
   bool ok = true;
-
+  double value = 0.0;
+  Container data = Container(
+    width: 100,
+    height: 100,
+    color: Colors.red,
+  );
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,11 +28,11 @@ class _ContentBrickState extends State<ContentBrick> {
           setState(() {
             if (ok) {
               value = 10;
-              HabitList.add("Dance");
+              HabitList.add(data);
               ok = false;
             } else {
               ok = true;
-              HabitList.remove('Dance');
+              HabitList.remove(data);
               value = 0.0;
             }
           });
@@ -46,7 +51,7 @@ class _ContentBrickState extends State<ContentBrick> {
               size: 50,
             ),
             Text(
-              "Dance",
+              widget.habit_name,
               style: TextStyle(fontSize: 20),
             ),
           ]),

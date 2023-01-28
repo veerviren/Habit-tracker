@@ -3,7 +3,7 @@ import 'package:habit_tracker/contants.dart';
 import 'package:habit_tracker/widgets/empty_brick.dart';
 import 'package:habit_tracker/widgets/content_brick.dart';
 
-List<String> HabitList = [];
+List<Widget> HabitList = [];
 
 class HabitSelectorPage extends StatefulWidget {
   const HabitSelectorPage({super.key});
@@ -41,36 +41,14 @@ class _HabitSelectorPageState extends State<HabitSelectorPage> {
                         const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
                     child: Row(
                       children: [
-                        ContentBrick(),
+                        ContentBrick(habit_name: "dance"),
                         EmptyBrick(),
-                        ContentBrick(),
-                        ContentBrick(),
-                        EmptyBrick(),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
-                    child: Row(
-                      children: [
-                        ContentBrick(),
-                        EmptyBrick(),
-                        ContentBrick(),
-                        EmptyBrick(),
-                        ContentBrick(),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
-                    child: Row(
-                      children: [
-                        EmptyBrick(),
-                        ContentBrick(),
-                        EmptyBrick(),
-                        ContentBrick(),
+                        ContentBrick(
+                          habit_name: "music",
+                        ),
+                        ContentBrick(
+                          habit_name: "singing",
+                        ),
                         EmptyBrick(),
                       ],
                     ),
@@ -80,11 +58,53 @@ class _HabitSelectorPageState extends State<HabitSelectorPage> {
                         const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
                     child: Row(
                       children: [
+                        ContentBrick(
+                          habit_name: "cycling",
+                        ),
                         EmptyBrick(),
-                        ContentBrick(),
-                        ContentBrick(),
+                        ContentBrick(
+                          habit_name: "running",
+                        ),
                         EmptyBrick(),
-                        ContentBrick(),
+                        ContentBrick(
+                          habit_name: "sleeping",
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
+                    child: Row(
+                      children: [
+                        EmptyBrick(),
+                        ContentBrick(
+                          habit_name: "study",
+                        ),
+                        EmptyBrick(),
+                        ContentBrick(
+                          habit_name: "eating",
+                        ),
+                        EmptyBrick(),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
+                    child: Row(
+                      children: [
+                        EmptyBrick(),
+                        ContentBrick(
+                          habit_name: "yoga",
+                        ),
+                        ContentBrick(
+                          habit_name: "Gym",
+                        ),
+                        EmptyBrick(),
+                        ContentBrick(
+                          habit_name: "shotting",
+                        ),
                       ],
                     ),
                   ),
