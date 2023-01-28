@@ -6,6 +6,7 @@ import 'package:habit_tracker/widgets/profile_pic_name.dart';
 import 'package:habit_tracker/widgets/calendar.dart';
 import 'package:horizontal_calendar/horizontal_calendar.dart';
 import 'package:date_only/date_only.dart';
+import 'package:habit_tracker/widgets/selected_habit.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 import 'package:habit_tracker/screens/habit_selector.dart';
@@ -14,7 +15,6 @@ import '../widgets/progress_boad.dart';
 late DateOnly dateOnly = DateOnly.now();
 late String todayDate = dateOnly.toString();
 late String selectedDate = todayDate;
-late String progress = "Not Done";
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -24,6 +24,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late String progress = "Not Done";
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -57,26 +58,9 @@ class _HomePageState extends State<HomePage> {
             child: ListView(
               children: [
                 ...SelectedHabit.map(
-                  (e) => Container(
-                    padding: EdgeInsets.all(8),
-                    margin: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Image.asset(e["icon"]!, width: 50, height: 50),
-                          Text(e["text"]!),
-                          ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  progress = "Done";
-                                });
-                              },
-                              child: Text(progress)),
-                        ]),
+                  (e) => SelectedHabitList(
+                    text: e["text"]!,
+                    icon: e["icon"]!,
                   ),
                 ).toList(),
               ],

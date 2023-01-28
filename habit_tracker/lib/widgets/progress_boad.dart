@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracker/contants.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
+
+var totalSelectedHabit = SelectedHabit.length;
+var totalCompletedHabit = 0;
 
 class ProgressBoad extends StatefulWidget {
   const ProgressBoad({super.key});
@@ -9,6 +13,12 @@ class ProgressBoad extends StatefulWidget {
 }
 
 class _ProgressBoadState extends State<ProgressBoad> {
+  updateWidget() {
+    setState(() {
+      totalCompletedHabit++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -71,7 +81,7 @@ class _ProgressBoadState extends State<ProgressBoad> {
             top: 110,
             left: 140,
             child: Text(
-              "10 out of 15 is completed",
+              "${totalCompletedHabit} out of ${totalSelectedHabit} is completed",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 15,
@@ -84,8 +94,10 @@ class _ProgressBoadState extends State<ProgressBoad> {
             child: Container(
               width: 300,
               child: StepProgressIndicator(
-                totalSteps: 100,
-                currentStep: 35,
+                totalSteps: totalSelectedHabit,
+                currentStep: totalCompletedHabit < totalSelectedHabit
+                    ? totalCompletedHabit
+                    : totalSelectedHabit,
                 size: 8,
                 padding: 0,
                 selectedColor: Colors.white,
