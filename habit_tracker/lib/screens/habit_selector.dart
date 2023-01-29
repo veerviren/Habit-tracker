@@ -85,7 +85,7 @@ class _HabitSelectorPageState extends State<HabitSelectorPage> {
                       children: [
                         EmptyBrick(),
                         ContentBrick(
-                          habit_name: "Gardening",
+                          habit_name: "Garden",
                           habit_icon: "assets/images/gardening.png",
                         ),
                         EmptyBrick(),
