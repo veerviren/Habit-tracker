@@ -44,7 +44,6 @@ class _SelectedHabitListState extends State<SelectedHabitList> {
                     habitStatus = 'Done';
                     buttonenabled = false;
                     totalCompletedHabit++;
-                    update();
                     print(totalCompletedHabit);
                   });
 
