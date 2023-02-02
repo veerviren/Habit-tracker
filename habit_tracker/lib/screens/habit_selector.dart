@@ -76,13 +76,13 @@ List<Widget> Row4 = [
 class Habit {
   final String name;
   final String icon;
-
   Habit({required this.name, required this.icon});
 }
 
-void _showAddHabitBottomSheet(BuildContext context) {
+void _showAddHabitBottomSheet(
+    BuildContext context, _HabitSelectorPageState State) {
   final _habitList = [
-    Habit(name: 'Meditation', icon: 'assets/images/coding.png'),
+    Habit(name: 'Coding', icon: 'assets/images/coding.png'),
     Habit(name: 'Reading', icon: 'assets/images/coding.png'),
     Habit(name: 'Exercise', icon: 'assets/images/coding.png'),
   ];
@@ -148,8 +148,10 @@ void _showAddHabitBottomSheet(BuildContext context) {
                             ),
                           );
                         }
+
                         Navigator.pop(context);
                         _randomNumber++;
+                        State.update();
                       },
                     );
                   },
@@ -173,7 +175,6 @@ class HabitSelectorPage extends StatefulWidget {
 class _HabitSelectorPageState extends State<HabitSelectorPage> {
   late String _habitName;
   late String _habitIcon;
-
   void update() {
     setState(() {});
   }
@@ -248,7 +249,7 @@ class _HabitSelectorPageState extends State<HabitSelectorPage> {
                     ),
                     child: TextButton(
                       onPressed: () {
-                        _showAddHabitBottomSheet(context);
+                        _showAddHabitBottomSheet(context, this);
                       },
                       child: Text(
                         'Add Habit',
