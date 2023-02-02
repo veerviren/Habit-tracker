@@ -63,7 +63,12 @@ class _HomePageState extends State<HomePage> {
                       onSurface: Colors.grey,
                     ),
                     onPressed: () {
-                      // showAddHabitBottomSheet(context, this as HabitSelectorPageState);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HabitSelectorPage(),
+                        ),
+                      );
                     },
                     child: Text(
                       'Add Habit',
