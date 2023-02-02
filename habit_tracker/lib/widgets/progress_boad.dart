@@ -95,9 +95,7 @@ class _ProgressBoadState extends State<ProgressBoad> {
               width: 300,
               child: StepProgressIndicator(
                 totalSteps: totalSelectedHabit,
-                currentStep: totalCompletedHabit < totalSelectedHabit
-                    ? totalCompletedHabit
-                    : totalSelectedHabit,
+                currentStep: 0,
                 size: 8,
                 padding: 0,
                 selectedColor: Colors.white,

@@ -57,15 +57,25 @@ class _HomePageState extends State<HomePage> {
             // color: Colors.red,
             child: ListView(
               children: [
-                ...SelectedHabit.map(
-                  (e) => SelectedHabitList(
-                    text: e["text"]!,
-                    icon: e["icon"]!,
+                if (todayDate.substring(9, 19) == selectedDate)
+                  ...SelectedHabit.map(
+                    (e) => SelectedHabitList(
+                      text: e["text"]!,
+                      icon: e["icon"]!,
+                    ),
+                  ).toList(),
+                if (todayDate.substring(9, 19) != selectedDate)
+                  Center(
+                    child: Container(
+                      child: Text(
+                        "No habits for the selected date",
+                        style: TextStyle(fontSize: 20, color: Colors.black45),
+                      ),
+                    ),
                   ),
-                ).toList(),
               ],
             ),
-          )
+          ),
         ]),
       ),
     );
@@ -76,13 +86,15 @@ class _HomePageState extends State<HomePage> {
       date: DateTime.now(),
       textColor: Colors.black45,
       showMonth: true,
+      initialDate: DateTime.now().subtract(Duration(days: 10)),
       lastDate: DateTime.now().add(Duration(days: 100)),
+      // lastDate: DateTime.now().subtract(Duration(days: 10)),
       backgroundColor: Colors.white,
       selectedColor: Colors.blue,
       onDateSelected: (date) => setState(() {
-        selectedDate = date.toString();
+        selectedDate = date;
         print(selectedDate);
-        print(todayDate);
+        print(todayDate.substring(9, 19));
       }),
     );
   }
