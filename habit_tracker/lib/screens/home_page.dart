@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.only(right: 150),
             child: Text(
               "Todays Habits",
-              style: TextStyle(fontSize: 30),
+              style: TextStyle(fontSize: 25),
             ),
           ),
           Text(SelectedHabit.length.toString()),
@@ -74,6 +74,22 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
               ],
+            ),
+          ),
+          TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.blue,
+              primary: Colors.white,
+              onSurface: Colors.grey,
+            ),
+            onPressed: () {
+              // showAddHabitBottomSheet(context, this as HabitSelectorPageState);
+            },
+            child: Text(
+              'Add Habit',
+              style: TextStyle(
+                fontSize: 20,
+              ),
             ),
           ),
         ]),
