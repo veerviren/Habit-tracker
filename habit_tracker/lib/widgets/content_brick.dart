@@ -35,7 +35,8 @@ class _ContentBrickState extends State<ContentBrick> {
               ok = false;
             } else {
               ok = true;
-              SelectedHabit.remove(habit);
+              SelectedHabit.removeWhere(
+                  (item) => item.toString() == habit.toString());
               value = 0.0;
             }
             print(SelectedHabit.length.toInt());

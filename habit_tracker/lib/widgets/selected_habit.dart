@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/widgets/progress_boad.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 String progress = "Not Done";
 
@@ -16,6 +17,14 @@ class SelectedHabitList extends StatefulWidget {
 class _SelectedHabitListState extends State<SelectedHabitList> {
   Color notCompleted = Colors.blue[300]!;
   bool buttonenabled = true;
+  String habitStatus = 'Not Done';
+
+  @override
+  void initState() {
+    super.initState();
+    _getButtonState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,21 +39,36 @@ class _SelectedHabitListState extends State<SelectedHabitList> {
         Text(widget.text),
         ElevatedButton(
           onPressed: buttonenabled
-              ? () {
+              ? () async {
                   setState(() {
-                    progress = "Done";
+                    habitStatus = 'Done';
                     buttonenabled = false;
                     totalCompletedHabit++;
                   });
+                  await _setButtonState();
                 }
               : null,
           style: ElevatedButton.styleFrom(
             primary: notCompleted,
             onSurface: Colors.blue[900]!,
           ),
-          child: Text(progress),
+          child: Text(habitStatus),
         ),
       ]),
     );
+  }
+
+  Future<void> _setButtonState() async {
+    final preferences = await SharedPreferences.getInstance();
+    preferences.setString(widget.text, 'Done');
+  }
+
+  Future<void> _getButtonState() async {
+    final preferences = await SharedPreferences.getInstance();
+    final habitStatus = preferences.getString(widget.text) ?? 'Not Done';
+    setState(() {
+      this.habitStatus = habitStatus;
+      buttonenabled = habitStatus == 'Not Done';
+    });
   }
 }
