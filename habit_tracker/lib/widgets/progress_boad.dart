@@ -5,23 +5,14 @@ import 'package:step_progress_indicator/step_progress_indicator.dart';
 var totalSelectedHabit = SelectedHabit.length;
 var totalCompletedHabit = 0;
 
-void nowUpdate(ProgressBoadState state) {
-  state.updateWidget();
-}
-
-void update() {
-  // print("update called");
-  nowUpdate(ProgressBoadState());
-}
-
 class ProgressBoad extends StatefulWidget {
   const ProgressBoad({super.key});
 
   @override
-  State<ProgressBoad> createState() => ProgressBoadState();
+  State<ProgressBoad> createState() => _ProgressBoadState();
 }
 
-class ProgressBoadState extends State<ProgressBoad> {
+class _ProgressBoadState extends State<ProgressBoad> {
   updateWidget() {
     setState(() {
       totalCompletedHabit++;
