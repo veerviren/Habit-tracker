@@ -82,9 +82,9 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Text(SelectedHabit.length.toString()),
-          Container(
-            height: 280,
-            width: double.infinity,
+          Expanded(
+            // height: 280,
+            // width: double.infinity,
             // color: Colors.red,
             child: ListView(
               children: [
