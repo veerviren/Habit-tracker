@@ -44,10 +44,36 @@ class _HomePageState extends State<HomePage> {
           ProgressBoad(),
           Container(
             margin: EdgeInsets.only(top: 20),
-            padding: EdgeInsets.only(right: 150),
-            child: Text(
-              "Todays Habits",
-              style: TextStyle(fontSize: 25),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(left: 20),
+                  child: Text(
+                    "Todays Habits",
+                    style: TextStyle(fontSize: 25),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(right: 20),
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      primary: Colors.white,
+                      onSurface: Colors.grey,
+                    ),
+                    onPressed: () {
+                      // showAddHabitBottomSheet(context, this as HabitSelectorPageState);
+                    },
+                    child: Text(
+                      'Add Habit',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           Text(SelectedHabit.length.toString()),
@@ -74,22 +100,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
               ],
-            ),
-          ),
-          TextButton(
-            style: TextButton.styleFrom(
-              backgroundColor: Colors.blue,
-              primary: Colors.white,
-              onSurface: Colors.grey,
-            ),
-            onPressed: () {
-              // showAddHabitBottomSheet(context, this as HabitSelectorPageState);
-            },
-            child: Text(
-              'Add Habit',
-              style: TextStyle(
-                fontSize: 20,
-              ),
             ),
           ),
         ]),
