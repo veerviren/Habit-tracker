@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_tracker/contants.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
-var totalSelectedHabit = SelectedHabit.length;
+// var totalSelectedHabit = SelectedHabit.length;
 var totalCompletedHabit = 0;
 
 class ProgressBoad extends StatefulWidget {
@@ -81,7 +81,7 @@ class _ProgressBoadState extends State<ProgressBoad> {
             top: 110,
             left: 140,
             child: Text(
-              "${totalCompletedHabit} out of ${totalSelectedHabit} is completed",
+              "${totalCompletedHabit} out of ${SelectedHabit.length} is completed",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 15,
@@ -94,8 +94,8 @@ class _ProgressBoadState extends State<ProgressBoad> {
             child: Container(
               width: 300,
               child: StepProgressIndicator(
-                totalSteps: totalSelectedHabit,
-                currentStep: 0,
+                totalSteps: SelectedHabit.length,
+                currentStep: SelectedHabit.length - 1,
                 size: 8,
                 padding: 0,
                 selectedColor: Colors.white,
