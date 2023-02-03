@@ -62,7 +62,18 @@ class _SelectedHabitListState extends State<SelectedHabitList> {
 
   Future<void> _setButtonState() async {
     final preferences = await SharedPreferences.getInstance();
+    setState(() {
+      habitStatus = 'Done';
+      buttonenabled = false;
+    });
     preferences.setString(widget.text, 'Done');
+    Future.delayed(Duration(seconds: 10), () async {
+      setState(() {
+        habitStatus = 'Not Done';
+        buttonenabled = true;
+      });
+      preferences.setString(widget.text, 'Not Done');
+    });
   }
 
   Future<void> _getButtonState() async {
